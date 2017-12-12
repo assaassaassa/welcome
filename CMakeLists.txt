@@ -8,6 +8,10 @@ configure_file(version.h.in version.h)
 
 add_executable(helloworld_cli main.cpp)
 
+enable_testing()
+
+add_test(test_version test_version)
+
 add_library(helloworld lib.cpp)
 
 set_target_properties(helloworld_cli helloworld test_version PROPERTIES
@@ -41,7 +45,3 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT bogdan_com2@mail.ru)
 
 include(CPack)
-
-enable_testing()
-
-add_test(test_version test_version)
